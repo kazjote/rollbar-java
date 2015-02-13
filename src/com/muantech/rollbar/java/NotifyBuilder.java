@@ -67,7 +67,10 @@ public class NotifyBuilder {
 
         // custom data
         JSONObject customData = new JSONObject();
-        fillCustomData(customData, context);
+
+        if (context != null) {
+            fillCustomData(customData, context);
+        }
 
         // log message
         if (throwable != null && message != null) {

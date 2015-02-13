@@ -65,7 +65,9 @@ public class RollbarAppender extends AppenderSkeleton {
 
         @SuppressWarnings("unchecked")
         final Map<String, Object> context = MDC.getContext();
-        context.put("LOG_BUFFER", new ArrayList<String>(LOG_BUFFER));
+
+        if (context != null)
+            context.put("LOG_BUFFER", new ArrayList<String>(LOG_BUFFER));
 
         return context;
     }
